@@ -13,3 +13,6 @@ services:
     image: memcached
   pg:
     image: postgres
+    restart: always
+    environment:
+      POSTGRES_PASSWORD: mysecretpassword
