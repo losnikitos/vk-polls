@@ -7,12 +7,18 @@ services:
     volumes:
     - .:/app
     links:
-    - memcached
-    - pg
-  memcached:
-    image: memcached
-  pg:
-    image: postgres
+#    - memcached
+    - postgres
+#  memcached:
+#    image: memcached
+  postgres:
+    container_name: postgres
     restart: always
+    image: postgres:latest
+    volumes:
+      - ./postgres-data:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
     environment:
-      POSTGRES_PASSWORD: mysecretpassword
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres

@@ -14,5 +14,13 @@ module.exports = {
         appSecret: 'fISnKlpqoRFIo4D4KYmv',
         callbackURL: 'http://localhost:8080/auth/vk/callback',
         version: '5.73'
+    },
+
+    db: {
+        host: 'localhost',
+        port: '5432',
+        user: 'postgres',
+        password: 'postgres',
+        database: 'postgres' // todo: rename db
     }
 };
