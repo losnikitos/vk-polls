@@ -1,21 +1,17 @@
-// Из каких файлов склеиваем конфиг на каждой итерации
-const configsByEnv = {
-    development: ['default.js', 'dev.js'],
-    production: ['default.js'],
-    default: ['default.js']
-};
+const mergeOptions = require('merge-options');
+const defaultConfig = require('./default');
 
 // Узнаем окружение из переменной NODE_ENV, по умолчанию считаем 'development'
 const env = process.env.NODE_ENV || 'development';
 
-// Читаем конфиги из текущей папки
-const configs = configsByEnv[env]
-    .map(filename => require(`./${filename}`));
-
-// Делаем shallow merge конфигов в порядке, который указан в configsByEnv
-const mergedConfig = configs.reduce((acc, config) => ({...acc, ...config}), {});
+// Merge
+const config = {
+    development: mergeOptions(defaultConfig, require('./dev.js')),
+    // testing: mergeOptions(defaultConfig, require('./testing.js')),
+    production: defaultConfig
+}[env];
 
 // Дописываем тип окружения в конфиг
-mergedConfig.env = env;
+config.env = config.environment = env;
 
-module.exports = mergedConfig;
+module.exports = config;

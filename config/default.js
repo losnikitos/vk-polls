@@ -5,15 +5,25 @@ module.exports = {
     },
 
     server: {
-        port: 8080
+        // что слушаем
+        port: 80,
+
+        // куда ходим с клиента
+        api: 'http://localhost:8000/api'
     },
 
     vk: {
         // Парметры из https://vk.com/dev/implicit_flow_user
         clientID: 6433439, // https://vk.com/editapp?id=6433439&section=info
         appSecret: 'fISnKlpqoRFIo4D4KYmv',
-        callbackURL: 'http://localhost:8080/auth/vk/callback',
+        callbackURL: 'http://localhost:8000/auth/vk/callback',
         version: '5.73'
+    },
+
+    static: {
+        host: '', // CDN
+        dir: `${__dirname}/../dist`,
+        hmr: false
     },
 
     db: {

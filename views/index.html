@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script>
+        API_URL = '{{ apiURL }}';
+    </script>
+    <script src="//yastatic.net/react/16.0.0/react.min.js"></script>
+    <script src="//yastatic.net/react/16.0.0/react-dom.min.js"></script>
+    <script src="{{ stHost }}/index.js"></script>
+    <title>Опросы ВКонтакте</title>
+</head>
+<body>
+<noscript>
+    Включите JavaScript, без него этот сайт не работает
+</noscript>
+{{ JSON.stringify(user) }}
+<div id="root"></div>
+</body>
+</html>

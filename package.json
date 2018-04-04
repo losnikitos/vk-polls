@@ -14,10 +14,34 @@
     "cookie-parser": "^1.4.3",
     "express": "^4.16.3",
     "express-session": "^1.15.6",
+    "lodash": "^4.17.5",
+    "merge-options": "^1.0.0",
     "passport": "^0.4.0",
     "passport-vkontakte": "^0.3.2",
     "pg": "^7.4.1",
     "pg-hstore": "^2.3.2",
     "sequelize": "^4.37.5"
+  },
+  "devDependencies": {
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.4",
+    "babel-preset-react-app": "^3.1.0",
+    "moment": "^2.22.0",
+    "react": "^16.3.0",
+    "react-dom": "^16.3.0",
+    "react-redux": "^5.0.7",
+    "react-saga": "^0.2.6",
+    "redux": "^3.7.2",
+    "redux-devtools-extension": "^2.13.2",
+    "redux-saga": "^0.16.0",
+    "webpack": "^3.6.0",
+    "webpack-dev-middleware": "1.12.0",
+    "webpack-dev-server": "^2.9.1",
+    "webpack-hot-middleware": "2.19.1"
+  },
+  "babel": {
+    "presets": [
+      "react-app"
+    ]
   }
 }
