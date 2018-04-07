@@ -19,12 +19,13 @@ const Option = sequelize.define('option', {
 
 const Answer = sequelize.define('answer');
 
-Poll.belongsTo(User, {as: 'author'}); // Добавляет колонку authorId в таблицу polls
-Poll.hasMany(Option);
+Poll.Options = Poll.hasMany(Option);
+
+// Добавляет колонку authorId в таблицу polls
+Poll.belongsTo(User, {as: 'author'});
 
 Answer.belongsTo(User);
 Answer.belongsTo(Option);
-Answer.belongsTo(Poll);
 
 sequelize.sync();
 
