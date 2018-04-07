@@ -1,14 +1,6 @@
+const config = require('../config');
 const Sequelize = require('sequelize');
-const sequelize = new Sequelize('postgres', 'postgres', 'postgres', {
-    host: 'localhost',
-    dialect: 'postgres',
-    pool: {
-        max: 5,
-        min: 0,
-        acquire: 30000,
-        idle: 10000
-    }
-});
+const sequelize = new Sequelize(config.db.login, config.db.password, config.db.database, config.db.options);
 
 const User = sequelize.define('user', {
     vk_id: {type: Sequelize.INTEGER},
@@ -36,4 +28,4 @@ Answer.belongsTo(Poll);
 
 sequelize.sync();
 
-module.exports = {User, Poll, Option, Answer};
+module.exports = {Sequelize, sequelize, User, Poll, Option, Answer};

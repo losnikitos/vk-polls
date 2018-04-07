@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <script>
         API_URL = '{{ apiURL }}';
-        USER = {{ JSON.stringify(user) }};
+        USER = {{ JSON.stringify(user) || null }};
     </script>
     <script src="//yastatic.net/react/16.0.0/react.min.js"></script>
     <script src="//yastatic.net/react/16.0.0/react-dom.min.js"></script>
