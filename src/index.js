@@ -16,6 +16,8 @@ const sagaMiddleware = createSagaMiddleware();
 const store = createStore(rootReducer, composeWithDevTools(applyMiddleware(sagaMiddleware)));
 sagaMiddleware.run(rootSaga);
 
+store.dispatch({type: 'INIT', user: USER});
+
 function render() {
     const root = document.querySelector('#root');
     ReactDOM.render(

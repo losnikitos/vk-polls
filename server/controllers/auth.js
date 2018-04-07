@@ -35,7 +35,7 @@ passport.serializeUser(function (user, done) {
 
 // Находим пользователя по ID
 passport.deserializeUser(function (id, done) {
-    User.findById(id).then(user => done(null, user));
+    User.findById(id).then(user => done(null, user.get({ plain: true })));
 });
 
 module.exports = {

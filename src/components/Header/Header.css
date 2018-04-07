@@ -1,0 +1,11 @@
+.header {
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #eee;
+    height: 50px;
+    padding: 10px 20px;
+
+    &__left {
+        flex: 1 0;
+    }
+}

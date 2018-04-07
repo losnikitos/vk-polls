@@ -1,0 +1,13 @@
+.user {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+
+    &__photo {
+        border-radius: 50%;
+    }
+
+    &__name {
+        margin-left: 10px;
+    }
+}

@@ -7,6 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <script>
         API_URL = '{{ apiURL }}';
+        USER = {{ JSON.stringify(user) }};
     </script>
     <script src="//yastatic.net/react/16.0.0/react.min.js"></script>
     <script src="//yastatic.net/react/16.0.0/react-dom.min.js"></script>
@@ -17,7 +18,6 @@
 <noscript>
     Включите JavaScript, без него этот сайт не работает
 </noscript>
-{{ JSON.stringify(user) }}
 <div id="root"></div>
 </body>
 </html>
