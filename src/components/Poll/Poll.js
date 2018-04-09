@@ -2,6 +2,7 @@ import React from 'react';
 import {connect} from 'react-redux';
 import b_ from 'b_';
 import './Poll.css'
+import { Button, Card, Elevation } from "@blueprintjs/core";
 
 const b = b_.with('poll');
 
@@ -10,14 +11,14 @@ export default class Poll extends React.Component {
         const {poll} = this.props;
         const {question, options} = poll;
 
-
         return (
-            <div className={b()}>
+
+            <Card className={b()}>
                 <div className={b('question')}>{question}</div>
-                {/*{options.map(option => {*/}
-                    {/*return (<div className={b('option')}>{option.text}</div>)*/}
-                {/*})}*/}
-            </div>
+                {options.map(option => {
+                    return (<div className={b('option')}>{option.text}</div>)
+                })}
+            </Card>
         );
     }
 }

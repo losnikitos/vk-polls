@@ -8,7 +8,7 @@ const b = b_.with('user');
 class User extends React.Component {
     render() {
         const {user} = this.props;
-        if (!user) return null;
+        if (!user) return <a href="/auth/vk">Войти через VK</a>;
 
         const {photo, first_name, last_name} = user;
         return (

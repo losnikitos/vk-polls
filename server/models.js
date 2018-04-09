@@ -24,8 +24,14 @@ Poll.Options = Poll.hasMany(Option);
 // Добавляет колонку authorId в таблицу polls
 Poll.belongsTo(User, {as: 'author'});
 
-Answer.belongsTo(User);
-Answer.belongsTo(Option);
+// Option.belongsToMany(User, { through: Answer });
+// User.belongsToMany(Option, { through: Answer });
+
+Answer.belongsTo(User, {as: 'user'});
+Answer.belongsTo(Option, {as: 'option'});
+
+Option.hasMany(Answer);
+User.hasMany(Answer);
 
 sequelize.sync();
 

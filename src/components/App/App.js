@@ -10,7 +10,9 @@ class App extends React.Component {
         return (
             <div>
                 <Header/>
-                {polls.map(poll => <Poll poll={poll}/>)}
+                <div className="app__content">
+                    {polls.map(poll => <Poll poll={poll}/>)}
+                </div>
             </div>
 
         )
