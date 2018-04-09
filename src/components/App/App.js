@@ -1,24 +1,21 @@
 import React from 'react';
 import Header from 'components/Header/Header';
 import './App.css';
-import {connect} from 'react-redux';
+import { connect } from 'react-redux';
 import Poll from 'components/Poll/Poll';
 
 class App extends React.Component {
-    render() {
-        const {polls} = this.props;
-        return (
-            <div>
-                <Header/>
-                <div className="app__content">
-                    {polls.map(poll => <Poll poll={poll}/>)}
-                </div>
-            </div>
-
-        )
-    }
+  render() {
+    const { polls } = this.props;
+    return (
+      <div>
+        <Header />
+        <div className="app__content">{polls.map(poll => <Poll poll={poll} />)}</div>
+      </div>
+    );
+  }
 }
 
-export default connect((state) => ({
-    polls: state.polls.list.map(id => state.polls.byID[id])
+export default connect(state => ({
+  polls: state.polls.list.map(id => state.polls.byID[id])
 }))(App);

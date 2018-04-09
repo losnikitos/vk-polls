@@ -1,14 +1,14 @@
 module.exports = {
-    server: {
-        // что слушаем
-        port: 8000,
+  server: {
+    // что слушаем
+    port: 8000,
 
-        // куда ходим с клиента
-        api: 'http://localhost:8000/api',
-    },
+    // куда ходим с клиента
+    api: 'http://localhost:8000/api'
+  },
 
-    static: {
-        host: '',
-        hmr: true
-    }
+  static: {
+    host: '',
+    hmr: true
+  }
 };

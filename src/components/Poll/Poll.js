@@ -1,25 +1,23 @@
 import React from 'react';
-import {connect} from 'react-redux';
+import { connect } from 'react-redux';
 import b_ from 'b_';
-import './Poll.css'
-import { Button, Card, Elevation } from "@blueprintjs/core";
+import './Poll.css';
+import { Button, Card, Elevation } from '@blueprintjs/core';
 
 const b = b_.with('poll');
 
 export default class Poll extends React.Component {
-    render() {
-        const {poll} = this.props;
-        const {question, options} = poll;
+  render() {
+    const { poll } = this.props;
+    const { question, options } = poll;
 
-        return (
-
-            <Card className={b()}>
-                <div className={b('question')}>{question}</div>
-                {options.map(option => {
-                    return (<div className={b('option')}>{option.text}</div>)
-                })}
-            </Card>
-        );
-    }
+    return (
+      <Card className={b()}>
+        <div className={b('question')}>{question}</div>
+        {options.map(option => {
+          return <div className={b('option')}>{option.text}</div>;
+        })}
+      </Card>
+    );
+  }
 }
-

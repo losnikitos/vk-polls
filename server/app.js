@@ -16,15 +16,17 @@ app.set('view engine', 'html');
 serveStaticFiles(app);
 
 app.use(require('cookie-parser')());
-app.use(require('body-parser').urlencoded({extended: true}));
-app.use(session({
+app.use(require('body-parser').urlencoded({ extended: true }));
+app.use(
+  session({
     secret: config.app.secret,
     saveUninitialized: true,
     store: new SequelizeStore({
-        db: models.sequelize
+      db: models.sequelize
     }),
     resave: false // Не пересохранять сессию в базу, если ничего не поменялось
-}));
+  })
+);
 app.use(passport.initialize());
 app.use(passport.session());
 
