@@ -4,6 +4,7 @@ import './App.css';
 import { connect } from 'react-redux';
 import Poll from 'components/Poll/Poll';
 import Error from 'components/Error/Error';
+import AddPoll from 'components/AddPoll/AddPoll';
 
 class App extends React.Component {
   render() {
@@ -12,7 +13,10 @@ class App extends React.Component {
       <div>
         <Error />
         <Header />
-        <div className="app__content">{polls.map(poll => <Poll poll={poll} />)}</div>
+        <div className="app__content">
+          {polls.map(poll => <Poll poll={poll} />)}
+          <AddPoll />
+        </div>
       </div>
     );
   }

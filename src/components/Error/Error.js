@@ -10,7 +10,9 @@ class Error extends React.Component {
   componentDidUpdate(oldProps) {
     if (this.props.errors.length > oldProps.errors.length) {
       const lastError = this.props.errors[this.props.errors.length - 1];
-      this.toaster.show({ intent: 'danger', message: JSON.stringify(lastError) });
+      const { err, type } = lastError;
+      const { message } = err;
+      this.toaster.show({ intent: 'danger', message: `${type}: ${message}` });
     }
   }
 }

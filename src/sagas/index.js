@@ -21,7 +21,18 @@ function* pushVote(action) {
   }
 }
 
+function* addPoll(action) {
+  try {
+    const { text } = action;
+    yield Api.post(`/poll`, text);
+    yield getPolls(); // refresh from server
+  } catch (err) {
+    yield put({ type: 'ADD_POLL_ERROR', err });
+  }
+}
+
 export default function* rootSaga() {
   yield getPolls();
   yield takeEvery('VOTE', pushVote);
+  yield takeEvery('ADD_POLL', addPoll);
 }

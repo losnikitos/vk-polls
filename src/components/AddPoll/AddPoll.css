@@ -1,0 +1,5 @@
+.add-poll {
+  &__submit {
+    margin: 20px 0;
+  }
+}
