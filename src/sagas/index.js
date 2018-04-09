@@ -1,5 +1,6 @@
 import Api from '../api';
 import { put } from 'redux-saga/effects';
+import { takeEvery } from 'redux-saga';
 
 function* getPolls() {
   try {
@@ -10,6 +11,17 @@ function* getPolls() {
   }
 }
 
+function* pushVote(action) {
+  try {
+    const { option } = action;
+    yield Api.post(`/vote/${option.id}`);
+    yield getPolls(); // refresh from server
+  } catch (err) {
+    yield put({ type: 'VOTE_ERROR', err });
+  }
+}
+
 export default function* rootSaga() {
   yield getPolls();
+  yield takeEvery('VOTE', pushVote);
 }
